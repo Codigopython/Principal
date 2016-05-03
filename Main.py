@@ -52,10 +52,12 @@ boton1 = Button(text='=', font=('ubuntu',24))
 boton1.place(height=40, width=85,x=55,y=205)
 
 #Botones de operaciones matematicas
-boton1 = Button(text='-', font=('ubuntu',24))
+boton1 = Button(text='-', font=('ubuntu',24),
+command=lambda: caja1.insert(END,'-'))
 boton1.place(height=85, width=40,x=145,y=70)
 
-boton1 = Button(text='+', font=('ubuntu',24))
+boton1 = Button(text='+', font=('ubuntu',24),
+command=lambda: caja1.insert(END,'+'))
 boton1.place(height=85, width=40,x=145,y=160)
 
 
