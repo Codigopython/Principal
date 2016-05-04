@@ -49,7 +49,7 @@ boton1.place(height=40, width=40,x=10,y=205)
 
 #Boton Clear
 boton1 = Button(text='=', font=('ubuntu',24),
-command=lambda: caja1.insert(END,'0'))
+command=lambda: caja1.insert(EN))
 boton1.place(height=40, width=85,x=55,y=205)
 
 #Botones de operaciones matematicas
