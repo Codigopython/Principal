@@ -1,5 +1,5 @@
 from tkinter import *
-
+from Modulos import *
 #frame principal
 gui = Tk()
 gui.title('Calculadora')
@@ -48,7 +48,8 @@ command=lambda: caja1.insert(END,'0'))
 boton1.place(height=40, width=40,x=10,y=205)
 
 #Boton Clear
-boton1 = Button(text='=', font=('ubuntu',24))
+boton1 = Button(text='=', font=('ubuntu',24),
+command=lambda: caja1.insert(END,'0'))
 boton1.place(height=40, width=85,x=55,y=205)
 
 #Botones de operaciones matematicas
@@ -57,7 +58,7 @@ command=lambda: caja1.insert(END,'-'))
 boton1.place(height=85, width=40,x=145,y=70)
 
 boton1 = Button(text='+', font=('ubuntu',24),
-command=lambda: caja1.insert(END,'+'))
+command=lambda: Captura1(caja1.get()))
 boton1.place(height=85, width=40,x=145,y=160)
 
 
