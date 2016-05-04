@@ -8,10 +8,10 @@ gui.config(bg='white')
 
 #Caja de operaciones
 
-lista1 = Listbox(bd=1,height=2)
+lista1 = Listbox(bd=0,height=3)
 lista1.pack()
 
-caja1 = Entry(bd=2)
+caja1 = Entry(bd=0)
 caja1.pack()
 
 #botones del 0 al 9
@@ -48,20 +48,24 @@ command=lambda: caja1.insert(END,'0'))
 boton1.place(height=40, width=40,x=10,y=205)
 
 #Boton Clear
-boton1 = Button(text='=', font=('ubuntu',24),
-command=lambda: caja1.insert(EN))
-boton1.place(height=40, width=85,x=55,y=205)
+boton1 = Button(text='CE', font=('ubuntu',20),
+command=lambda: (caja1.delete(0,END), lista1.delete(0,END)))
+boton1.place(height=40, width=40,x=100,y=205)
 
 #Botones de operaciones matematicas
 boton1 = Button(text='-', font=('ubuntu',24),
-command=lambda: caja1.insert(END,'-'))
+command=lambda: Captura2(int(caja1.get())))
 boton1.place(height=85, width=40,x=145,y=70)
 
 boton1 = Button(text='+', font=('ubuntu',24),
-command=lambda: Captura1(caja1.get()))
+command=lambda: (lista1.insert(END, Captura1(int(caja1.get()))),
+caja1.delete(0,END)))
 boton1.place(height=85, width=40,x=145,y=160)
 
-
+boton1 = Button(text='=', font=('ubuntu',24),
+command=lambda: (lista1.insert(END, Captura2(int(caja1.get())),
+caja1.delete(0,END)), lista1.insert(END, Suma())))
+boton1.place(height=40, width=40,x=55,y=205)
 
 # button1.place(bordermode=OUTSIDE, height=40, width=40, y=70)
 
