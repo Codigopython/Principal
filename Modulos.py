@@ -19,10 +19,10 @@ def Calculo():
     if operacion == "suma":
         suma = dato1 + dato2
         print("operacion>> ",suma)
-        return suma
+        return "Suma",suma
     elif operacion == "resta":
         resta = dato1 - dato2
         print("operacion>> ", resta)
-        return resta
+        return "Resta",resta
     else:
         print("algo esta mal")
