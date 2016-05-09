@@ -1,28 +1,71 @@
-def Operacion(a):
+valor = 0
+operacion = ""
+def Suma(num):
+    global valor
     global operacion
-    operacion = a
-    print(operacion)
+    operacion = "suma"
+    valor = valor+int(num)
+    return valor
 
-def Captura1(num1):
-    global dato1
-    dato1 = num1
-    print("captura1>> ", dato1)
-    return dato1
-
-def Captura2(num2):
-    global dato2
-    dato2 = num2
-    print("captura2>> ", dato2)
-    return dato2
-
-def Calculo():
-    if operacion == "suma":
-        suma = dato1 + dato2
-        print("operacion>> ",suma)
-        return "Suma",suma
-    elif operacion == "resta":
-        resta = dato1 - dato2
-        print("operacion>> ", resta)
-        return "Resta",resta
+def Resta(num):
+    global valor
+    global operacion
+    operacion = "resta"
+    if valor == 0:
+        valor = int(num)
+        return valor
     else:
-        print("algo esta mal")
+        valor = valor-int(num)
+        return valor
+
+def Multi(num):
+    global valor
+    global operacion
+    operacion = "multi"
+    if valor == 0:
+        valor = 1
+        valor = valor*int(num)
+        return valor
+    else:
+        valor = valor*int(num)
+        return valor
+
+def Divi(num):
+    global valor
+    global operacion
+    operacion = "divi"
+    if valor == 0:
+        valor = int(num)
+        return valor
+    else:
+        valor = valor/int(num)
+        return valor
+
+def Igual(num):
+    global valor
+    global operacion
+
+    if operacion == "suma":
+        valor = valor+int(num)
+        return valor
+
+    elif operacion == "resta":
+        valor = valor-int(num)
+        return valor
+
+    elif operacion == "multi":
+        valor = valor*int(num)
+        return valor
+
+    elif operacion == "divi":
+        valor = valor/int(num)
+        return valor
+
+    else:
+        print ("algo anda mal")
+
+def Clear():
+    global valor
+    global operacion
+    operacion = ""
+    valor = 0
