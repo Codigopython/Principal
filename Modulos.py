@@ -1,16 +1,13 @@
 valor = 0
-operacion = ""
+est = ""
+
 def Suma(num):
     global valor
-    global operacion
-    operacion = "suma"
     valor = valor+int(num)
     return valor
 
 def Resta(num):
     global valor
-    global operacion
-    operacion = "resta"
     if valor == 0:
         valor = int(num)
         return valor
@@ -20,8 +17,6 @@ def Resta(num):
 
 def Multi(num):
     global valor
-    global operacion
-    operacion = "multi"
     if valor == 0:
         valor = 1
         valor = valor*int(num)
@@ -32,8 +27,6 @@ def Multi(num):
 
 def Divi(num):
     global valor
-    global operacion
-    operacion = "divi"
     if valor == 0:
         valor = int(num)
         return valor
@@ -41,31 +34,56 @@ def Divi(num):
         valor = valor/int(num)
         return valor
 
+def Operacion(num,op):
+    global est
+    if est == "":
+        est = op
+    if num =="":
+        est = op
+
+    if est == "s":
+        suma = Suma(num)
+        est = op
+        return suma
+    if est == "r":
+        resta = Resta(num)
+        est=op
+        return resta
+    if est == "m":
+        multi = Multi(num)
+        est=op
+        return multi
+    if est == "d":
+        divi = Divi(num)
+        est=op
+        return divi
+    else:
+        print("algo esta mal")
+
 def Igual(num):
-    global valor
-    global operacion
-
-    if operacion == "suma":
-        valor = valor+int(num)
+    global est
+    global op
+    if op == "s":
+        Suma(num)
+        est=""
         return valor
-
-    elif operacion == "resta":
-        valor = valor-int(num)
+    elif op == "r":
+        Resta(num)
+        est=""
         return valor
-
-    elif operacion == "multi":
-        valor = valor*int(num)
+    elif op == "m":
+        Multi(num)
+        est=""
         return valor
-
-    elif operacion == "divi":
-        valor = valor/int(num)
+    elif op == "d":
+        Divi(num)
+        est=""
         return valor
-
     else:
         print ("algo anda mal")
 
 def Clear():
     global valor
-    global operacion
-    operacion = ""
+    global est
+    est = ""
     valor = 0

@@ -1,3 +1,5 @@
+#version 0.8
+#by kelvin romani ollero
 from tkinter import *
 from Modulos import *
 #frame principal
@@ -10,7 +12,6 @@ gui.config(bg='white')
 lista1 = Listbox(relief=SUNKEN,bd=0,height=3,width=17,font=("Ubuntu",15))
 lista2 = Listbox(bd=0,height=1,width=17,font=("Ubuntu",15))
 caja1 = Entry(bd=0,width=17,font=("ubuntu",15))
-
 
 lista1.pack()
 lista2.pack()
@@ -58,35 +59,41 @@ command=lambda: caja1.insert(END,'0'))
 boton1.place(height=40, width=40,x=10,y=275)
 
 #Botones de operaciones matematicas
+
 boton1 = Button(bd=0, text='+', font=('ubuntu',24),
-command=lambda:(lista2.insert(0,Suma(caja1.get())),
+command=lambda:(lista2.insert(0,Operacion(caja1.get(),"s")),
 lista1.insert(0,caja1.get()),caja1.delete(0,END)))
 boton1.place(height=85, width=40,x=145,y=230)
 
+# boton1 = Button(bd=0, text='+', font=('ubuntu',24),
+# command=lambda:(lista2.insert(0,Suma(caja1.get())),
+# lista1.insert(0,caja1.get()),caja1.delete(0,END)))
+# boton1.place(height=85, width=40,x=145,y=230)
+
 boton1 = Button(bd=0, text='-', font=('ubuntu',24),
-command=lambda:(lista2.insert(0,Resta(caja1.get())),
+command=lambda:(lista2.insert(0,Operacion(caja1.get(),"r")),
 lista1.insert(0,caja1.get()),caja1.delete(0,END)))
 boton1.place(height=85, width=40,x=145,y=140)
 
 boton1 = Button(bd=0, text='x', font=('ubuntu',24),
-command=lambda:(lista2.insert(0,Multi(caja1.get())),
+command=lambda:(lista2.insert(0,Operacion(caja1.get(),"m")),
 lista1.insert(0,caja1.get()),caja1.delete(0,END)))
 boton1.place(height=85, width=40,x=190,y=140)
 
 boton1 = Button(bd=0, text='/', font=('ubuntu',24),
-command=lambda:(lista2.insert(0,Divi(caja1.get())),
+command=lambda:(lista2.insert(0,Operacion(caja1.get(),"d")),
 lista1.insert(0,caja1.get()),caja1.delete(0,END)))
 boton1.place(height=85, width=40,x=190,y=230)
 
 #Boton igual
 boton1 = Button(bd=0, text='=', font=('ubuntu',24),
-command=lambda:(lista2.insert(0,Igual(caja1.get())),
+command=lambda:(lista2.insert(0,Operacion(caja1.get(),"=")),
 lista1.insert(0,caja1.get()),caja1.delete(0,END)))
 boton1.place(height=40, width=40,x=55,y=275)
 
 #Boton Clear
 boton1 = Button(bd=0, text='CE', font=('ubuntu',20),
-command=lambda:(Clear(),lista1.delete(0,END),lista2.delete(0,END)))
+command=lambda:(Clear(),lista1.delete(0,END),lista2.delete(0,END),caja1.delete(0,END)))
 boton1.place(height=40, width=40,x=100,y=275)
 
 gui.mainloop()
