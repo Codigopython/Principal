@@ -1,7 +1,7 @@
 #version 0.8
 #by kelvin romani ollero
 from tkinter import *
-from Modulos import *
+from Modulos10 import *
 #frame principal
 gui = Tk()
 gui.title('Calculadora')
